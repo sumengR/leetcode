@@ -19,33 +19,32 @@
 */
 class Solution {
 public:
-
-    int SumArr(vector<int>& bills,int x){
-            int sum = 0;
-           
-                for (int i=0;i < x;i=i+1)
-                {
-                    sum = bills[i]+sum;
-                    
-                }
-                return sum;  
-                       
-        }
     bool lemonadeChange(vector<int>& bills) {
-       int len = bills.size();
-        vector<int> result(len);
-
-        for (int i=0; i<len;i=i+1) {
-            if (bills[i] > SumArr(bills,i))
-            {
-                result[i]=1;  
-            }
-        }
-        if (SumArr(result,len)>=1){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
+      int five = 0;
+      int ten = 0;
+      int tweny = 0;
+      for(int i :bills){
+          if (i==5){
+              five ++;
+          }else if(i == 10){
+              if(five >=1){
+                  five --;
+                  ten ++;
+              }else{
+                  return false;
+              }
+          }else{
+              if(five>=1&&ten>=1){
+                  five --;
+                  ten --;  
+              }else if (five >=3){
+                  five = five -3;
+              }else{return false;}
+          }
+          cout<<five<<endl;
+          cout<<ten<<endl;
+          cout<<tweny<<endl;
+      }
+      return true;
+}
 };
