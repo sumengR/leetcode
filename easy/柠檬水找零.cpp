@@ -41,9 +41,7 @@ public:
                   five = five -3;
               }else{return false;}
           }
-          cout<<five<<endl;
-          cout<<ten<<endl;
-          cout<<tweny<<endl;
+
       }
       return true;
 }
